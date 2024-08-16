@@ -1,0 +1,135 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: auto;
+  font-family: "Montserrat",sans-serif;
+  background-color: #2C2B29;
+}
+
+#root {
+  width: 100%;
+  height: 100;
+}
+
+.inputBox{
+  
+}
+
+.disabled{
+  background-color: #7e7b89;
+  cursor: not-allowed;
+}
+
+.starterSelect {
+  background-color: #3C3B39;
+}
+
+.noTurn{
+  background-color:#7e7b89;
+}
+
+.turn{
+  background-color: white;
+}
+
+.options {
+  font-size: 0.6rem;
+  width: 70%;
+}
+
+
+@layer utilities{
+  .wrapper{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    border: 2px solid black;
+  }
+
+  .gridDivWhite{
+    padding: 0.3rem;
+    background: #EBECD0;
+  }
+
+  .gridDivBlack{
+    background: #779556;
+    padding: 0.3rem;
+  }
+
+  .kingInCheck{
+    background: red;
+  }
+
+  .selectedDiv{
+    background: #B9CA43;
+  }
+
+  .validMove{
+    background: rgb(102, 112, 118);
+    height: 25%;
+    width: 25%; 
+    margin-left: 1.2rem;
+    margin-top: 1.5rem;
+    border: 1px solid;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+
+  .validMoveTaken{
+    height: 70%;
+    width: 70%; 
+    position: absolute;
+    border: 10px solid;
+    border-radius: 50%;
+    opacity: 0.3;
+    left: 0.3rem;
+    top: 0.3rem;
+  }
+
+  .loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: animloader 2s linear infinite;
+  }
+  .loader::after {
+    animation-delay: 1s;
+  }
+  
+  @keyframes animloader {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+}

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.0",
+    "nodemon": "^3.1.4",
+    "recoil": "^0.7.7",
+    "use-dynamic-refs": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10"
+  }
+}
