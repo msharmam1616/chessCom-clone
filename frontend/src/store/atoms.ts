@@ -1,7 +1,7 @@
 
 
 import { atom, selector } from "recoil";
-import { SOCKET_URL } from "../extras";
+import { PROD_SOCKET_URL } from "../extras";
 
 export const userAtom = atom({
     key: 'userAtom',
@@ -56,7 +56,7 @@ export const userAtom = atom({
             seconds: 0
         }
       },
-      socket: new WebSocket(SOCKET_URL)
+      socket: new WebSocket(PROD_SOCKET_URL)
     }
 })
 

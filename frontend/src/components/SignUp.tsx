@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import logo from '../assets/logo.png';
 import axios from 'axios';
-import { URL } from '../extras';
+import { PROD_URL as URL} from '../extras';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { userAtom } from '../store/atoms';

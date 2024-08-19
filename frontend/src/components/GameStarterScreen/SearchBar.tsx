@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react";
 import search_ico from '../../assets/search_ico.png';
-import { URL } from "../../extras";
+import { PROD_URL as URL } from "../../extras";
 import { userNameContext } from "../../Contexts/ConnectedPlayerContext";
 
 export function SearchBar(){
