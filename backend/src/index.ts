@@ -1,6 +1,6 @@
 
 import WebSocket, {WebSocketServer} from "ws";
-
+import { corsMiddleware } from "./auth/userAuth";
 const express= require('express');
 const cors= require('cors');
 const app= express();
@@ -8,6 +8,7 @@ const userRoute= require('./routes/user');
 
 app.use(cors());
 app.use(express.json());
+app.use(corsMiddleware);
 
 app.use("/api/v1/user", userRoute);
 
