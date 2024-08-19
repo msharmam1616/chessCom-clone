@@ -1,6 +1,4 @@
 
-import dot from './dot.png';
-
 export const pieces= new Map([
     ["kw", "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wk.png"],
     ["kb", "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png"],

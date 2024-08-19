@@ -9,7 +9,7 @@ export function SearchBar(){
     const [usersList, setUsersList] = useState([]);
     const [box, showBox]= useState(false);
     const inputRef= useRef<HTMLInputElement>(null);
-    const {connectedPlayerName, setConnectedPlayerName}= useContext(userNameContext);
+    const {setConnectedPlayerName}= useContext(userNameContext);
 
     useEffect(()=>{
 

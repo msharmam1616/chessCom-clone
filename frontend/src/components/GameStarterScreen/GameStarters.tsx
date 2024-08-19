@@ -1,11 +1,11 @@
 import newGame from '../../assets/newGame.png';
 import twoPlayerMode from '../../assets/friends.png';
-import {  useContext, useEffect, useRef, useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useEffect, useRef, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { userAtom } from '../../store/atoms';
 import { OptionSelect } from './OptionSelect';
 import { SearchBar } from './SearchBar';
-import { socketContext, userNameContext } from '../../Contexts/ConnectedPlayerContext';
+import { userNameContext } from '../../Contexts/ConnectedPlayerContext';
 import { HideScreen } from '../HideScreen';
 
 export function GameStarter(){

@@ -1,5 +1,4 @@
-
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import logo from '../assets/logo.png';
 import axios from 'axios';
 import { URL } from '../extras';
@@ -9,8 +8,6 @@ import { userAtom } from '../store/atoms';
 
 
 export function SignUp() {
-
-    const [login, setLogin]= useState(1);
     const navigate= useNavigate();
 
     const setState= useSetRecoilState(userAtom);
@@ -52,7 +49,7 @@ export function SignUp() {
             navigate('/');
             }
         })  
-        .catch((err:any)=>{
+        .catch(()=>{
             console.log("Error Occurred!");
         })
     }

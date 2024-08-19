@@ -3,7 +3,7 @@ import { ChessBoard } from "./ChessBoard";
 import { GameStarter } from "./GameStarterScreen/GameStarters";
 import { Header } from "./Header";
 import { userAtom } from "../store/atoms";
-import { useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export function MainScreen(){
 

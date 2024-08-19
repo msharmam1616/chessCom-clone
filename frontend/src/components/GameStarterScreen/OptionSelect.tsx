@@ -12,8 +12,7 @@ export function OptionSelect(){
     const [state,setState]= useRecoilState(userAtom);
     const buttonRef= useRef<HTMLButtonElement>(null);
 
-    const {connectedPlayerName, setConnectedPlayerName}= useContext(userNameContext);
-    const socket= useContext(socketContext);
+    const {connectedPlayerName, }= useContext(userNameContext);
 
     useEffect(()=>{
         if(state.started){

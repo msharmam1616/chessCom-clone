@@ -1,16 +1,9 @@
-import { useRecoilState } from "recoil"
-import { userAtom } from "../../store/atoms"
-import { useContext } from "react";
-import { userNameContext, socketContext } from "../../Contexts/ConnectedPlayerContext";
+import { useRecoilState } from "recoil";
+import { userAtom } from "../../store/atoms";
 
 export function IncomingRequest(){
     
     const [state, setState]= useRecoilState(userAtom);
-
-    const socket= useContext(socketContext);
-
-    const username= useContext(userNameContext);
-    
     
     return <div>
         <div> Incoming Challenge From </div>

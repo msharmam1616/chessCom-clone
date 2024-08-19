@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react"
-import { useRecoilState, useRecoilValue } from "recoil"
+import { useEffect, useRef } from "react"
+import { useRecoilState } from "recoil"
 import { userAtom } from "../store/atoms"
 import { AskRequestScreen } from "./TimerScreens/AskRequestScreen";
 import { RequestSent } from "./TimerScreens/RequestSent";
@@ -8,7 +8,7 @@ import { GameFinishScreen } from "./TimerScreens/GameFinishScreen";
 
 export function HideScreen(){
 
-    const [state,setState]= useRecoilState(userAtom);
+    const [state]= useRecoilState(userAtom);
     const divRef= useRef<HTMLDivElement>(null)
 
     useEffect(() =>{

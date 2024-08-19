@@ -24,7 +24,7 @@ export function AskRequestScreen(){
                     ...state.players,
                     player2: state.request.from
                 },
-                timers: state.timers.map((obj:any)=>{
+                timers: state.timers.map(()=>{
                     return state.request.timeControl
                 }),
                 board: state.gameState.ReceivedRequestAccepted ? blackBoard : whiteBoard,

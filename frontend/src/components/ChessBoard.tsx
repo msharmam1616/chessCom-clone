@@ -30,7 +30,7 @@ export function ChessBoard(){
                 const divRef= document.getElementById(idx)?.getElementsByTagName('img')[0];
                // console.log(divRef);
                if(divRef && state.board[i][j] != 'X'){
-                    divRef.src= pieces.get(state.board[i][j]);
+                    divRef.src= pieces.get(state.board[i][j]) || "";
                     divRef.style.height= "6.7vh";
                     divRef.style.left= "0rem";
                     
