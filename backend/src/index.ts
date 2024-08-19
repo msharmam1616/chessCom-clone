@@ -1,23 +1,13 @@
 
-import cookieParser from "cookie-parser";
 import WebSocket, {WebSocketServer} from "ws";
 
 const express= require('express');
 const cors= require('cors');
 const app= express();
 const userRoute= require('./routes/user');
-const session= require('express-session');
-
 
 app.use(cors());
-app.use(cookieParser());
 app.use(express.json());
-
-app.use(session({
-    secret: "My secret",
-    resave: false,
-    saveUninitialized: true
-}))
 
 app.use("/api/v1/user", userRoute);
 

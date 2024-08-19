@@ -1,5 +1,4 @@
 import { User } from "../db";
-import jwt from 'jsonwebtoken';
 
 
 const express= require('express');
@@ -64,6 +63,5 @@ router.post('/getUsers', async (req: any, res:any, next: any) => {
     })
 });
 
-//require("dotenv").config();
 
 module.exports= router;
