@@ -46,7 +46,7 @@ export function SignUp() {
                     player1: data.username
                 }    
             }))
-            navigate('/');
+            navigate('/mainscreen');
             }
         })  
         .catch(()=>{

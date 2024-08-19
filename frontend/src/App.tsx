@@ -11,8 +11,8 @@ function App() {
        <RecoilRoot>
       <BrowserRouter>
         <Routes>
-         <Route path="/signUp" element={<SignUp/>}/> 
-         <Route path="/" element={<MainScreen />}/>
+         <Route path="/" element={<SignUp/>}/> 
+         <Route path="/mainscreen" element={<MainScreen />}/>
          </Routes>
       </BrowserRouter>
       </RecoilRoot>
