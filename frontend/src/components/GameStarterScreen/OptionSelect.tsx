@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import { useRecoilState } from "recoil";
 import { userAtom } from "../../store/atoms";
-import { userNameContext, socketContext } from "../../Contexts/ConnectedPlayerContext";
+import { userNameContext} from "../../Contexts/ConnectedPlayerContext";
 
 export function OptionSelect(){
 

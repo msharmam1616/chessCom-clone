@@ -3,7 +3,6 @@ import { RecoilRoot} from 'recoil'
 import { SignUp } from './components/SignUp'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainScreen } from './components/MainScreen'
-import { TimerParity } from './components/TimerParity'
 
 function App() {
 
@@ -15,7 +14,6 @@ function App() {
          <Route path="/signUp" element={<SignUp/>}/> 
          <Route path="/" element={<MainScreen />}/>
          </Routes>
-         <TimerParity></TimerParity>
       </BrowserRouter>
       </RecoilRoot>
     </div>

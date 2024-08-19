@@ -141,8 +141,7 @@ export function ChessBoard(){
             console.log(x);
             console.log(y);
             const color= obj.piece[0] == 'w' ? "white":"black";
-            const piece= obj.piece[1].toString();
-
+        
             if(color != state.color) return;
 
            const validMoves: any= moves.computeMoves(obj.piece[1]+obj.piece[0], x, y, color);
@@ -175,10 +174,7 @@ export function ChessBoard(){
                     obj: obj
                 })
             }));
-            console.log(obj);
         }
-        console.log("exiting with");
-        console.log(state.helpers.clickCount);
     }
   
 
