@@ -2,8 +2,8 @@ export const LOCAL_URL= "http://localhost:3000/";
 
 export const LOCAL_SOCKET_URL= "ws://localhost:8080/"
 
-export const PROD_URL= "https://chesscom-clone.onrender.com"
-export const PROD_SOCKET_URL= "wss://chesscom-clone.onrender.com"
+export const PROD_URL= "https://chesscom-clone.onrender.com/"
+export const PROD_SOCKET_URL= "wss://chesscom-clone.onrender.com/"
 
 
 export const whiteBoard= [
