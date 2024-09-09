@@ -17,6 +17,9 @@ export function AskRequestScreen(){
         }
 
         if(!time) {
+            console.log(state);
+            const accept = state.gameState.ReceivedRequestAccepted;
+            console.log(accept);
             setState(state => ({
                 ...state, 
                 started: true,
@@ -27,17 +30,12 @@ export function AskRequestScreen(){
                 timers: state.timers.map(()=>{
                     return state.request.timeControl
                 }),
-                board: state.gameState.ReceivedRequestAccepted ? blackBoard : whiteBoard,
-                color: state.gameState.ReceivedRequestAccepted ? "black": "white",
-                currentTurn: state.gameState.ReceivedRequestAccepted ? false : true,
                 gameState: {
-                    loading: false,
-                    requestSent:false,
-                    SentRequestAccepted:false,
-                    ReceivedRequestAccepted: false,
-                    playerWon: 0
-                },
+                    ...state.gameState,
+                    loading: false
+                }
             }))
+            console.log(state);
         } else{
             intervalRef.current= setInterval(() =>{
                 setTime(time-1);

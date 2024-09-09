@@ -4,6 +4,7 @@ import { GameStarter } from "./GameStarterScreen/GameStarters";
 import { Header } from "./Header";
 import { userAtom } from "../store/atoms";
 import { useEffect } from "react";
+import { whiteBoard } from "../extras";
 
 export function MainScreen(){
 
@@ -11,9 +12,15 @@ export function MainScreen(){
   
     useEffect(() =>{
 
+    console.log("mainscreen!!");
       
     state.socket.onopen= () =>{
       console.log("connected!!");
+    }
+
+    state.socket.onerror= (err) =>{
+        console.log("err is ");
+        console.log(err);
     }
   
     state.socket.onmessage = (message: any) =>{
@@ -51,6 +58,9 @@ export function MainScreen(){
                     ...state.gameState,
                     SentRequestAccepted: true
                 },
+                board: whiteBoard,
+                color: "white",
+                currentTurn: true,
                 request: {
                     ...state.request,
                     from: messageObj.from,
@@ -58,39 +68,33 @@ export function MainScreen(){
                 }
             }))
         }else if(messageObj.type == "move"){
-            let [Xi,Yi] = [parseInt(messageObj.move.from[0]), parseInt(messageObj.move.from[1])];
-            let [Xf,Yf] = [parseInt(messageObj.move.to[0]), parseInt(messageObj.move.to[1])]
+            console.log(state.board);
+            // const piece= state.board[messageObj.move.from as keyof typeof whiteBoard];
 
-            let initialX= 8-Xi-1, finalX= 8-Xf-1, finalY= Yf;
+            // console.log(messageObj.move);
+            // console.log(messageObj);
 
-            let piece= state.board[initialX][Yi];
-
-            console.log(initialX+Yi);
-            console.log(finalX+finalY);
-
-            setState((state) => ({
+            // console.log({piece});
+    
+            setState(state =>({
                 ...state,
-                board: state.board.map((arr, idx) =>{
-                    if(idx == initialX){
-                        piece= arr[Yi];
-                        return [...arr.slice(0,Yi), "X", ...arr.slice(Yi+1)];
-                    }else if(idx == finalX) {
-                        return [...arr.slice(0,finalY), piece , ...arr.slice(finalY+1)]   
-                    }
-                    return [...arr];
-                }),
+                board: messageObj.board,
                 currentTurn: !state.currentTurn
             }));
+
+            console.log("after ", state.board);
         }else if(messageObj.type == "parity"){
+           // console.log("parity!!!");
             const obj= [
                 messageObj.timers[1],
                 messageObj.timers[0]
             ]
             setState((state) => ({
                 ...state,
+                ...state.gameState,
                 timers: obj
             }))
-        }else if(messageObj.type == "ilost"){
+        }else if(messageObj.includes("gameOver")){
             setState((state) =>({
                 ...state,
                 gameState: {

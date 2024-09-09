@@ -1,23 +1,14 @@
 
 
 import { atom, selector } from "recoil";
-import { PROD_SOCKET_URL } from "../extras";
+import { PROD_SOCKET_URL, blackBoard, whiteBoard } from "../extras";
 
 export const userAtom = atom({
     key: 'userAtom',
     default: {
         color: "white",
         started: false,
-        board: [
-        ["rb","nb","bb","qb","kb","bb","nb","rb"],
-        ["pb","pb","pb","pb","pb","pb","pb","pb"],
-        ["X","X","X","X","X","X","X","X"],
-        ["X","X","X","X","X","X","X","X"],
-        ["X","X","X","X","X","X","X","X"],
-        ["X","X","X","X","X","X","X","X"],
-        ["pw","pw","pw","pw","pw","pw","pw","pw"],
-        ["rw","nw","bw","qw","kw","bw","nw","rw"]
-      ],
+        board: blackBoard,
       timers: [
         {
             minutes: 0,

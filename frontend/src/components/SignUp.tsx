@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import logo from '../assets/logo.png';
 import axios from 'axios';
 import { PROD_URL as URL} from '../extras';
@@ -9,27 +9,30 @@ import { userAtom } from '../store/atoms';
 
 export function SignUp() {
     const navigate= useNavigate();
-
     const setState= useSetRecoilState(userAtom);
-
-
+    const [loading, setLoading] = useState(false);
+    const [err, setErr]= useState("");
+    
     useEffect(()=>{
-        if(inputRef.current){
+        if(inputRef.current && inputRef.current.value == ""){
             inputRef.current.value= "Username or Email";
         }
-        if(passwordRef.current){
+        if(passwordRef.current && passwordRef.current.value == ""){
             passwordRef.current.value= "Password";
         }
 
-    },[]);
+    },[loading]);
 
     function submitHandler($event:any){
+
+        if(loading) return;
+        setLoading(true);
 
         const login= $event.target.innerText == 'Login';
         
         const link= URL+"api/v1/user/"+ (login == true ? "signIn" : "signUp");
         let data:any= {
-            username: inputRef?.current?.value,
+            username: inputRef?.current?.value.toLowerCase(),
             password: passwordRef?.current?.value
         }
 
@@ -37,6 +40,8 @@ export function SignUp() {
         .then((res:any)=>{
             console.log(res);
             console.log("User Created Successfully!");
+
+            setLoading(false);
 
             if(!res.data.err){
             setState(state =>({
@@ -50,6 +55,7 @@ export function SignUp() {
             }
         })  
         .catch(()=>{
+            setLoading(false);
             console.log("Error Occurred!");
         })
     }
@@ -90,7 +96,7 @@ export function SignUp() {
                 <div className='underline underline-offset-2'> Forgot Password? </div>
             </div>
             <button className='bg-[#81B64C] p-5 rounded-xl text-white text-2xl font-[1000] mt-[2.5rem] shadow-xl focus:bg-[#779556]' onClick={submitHandler}>
-                Login
+               {!loading ? "Login" :  <span className="loader"></span>}
             </button>
 
             <div className='flex items-center mt-4'>
@@ -100,7 +106,7 @@ export function SignUp() {
             </div>
 
             <button className='bg-[#81B64C] p-5 rounded-xl text-white text-2xl font-[1000] mt-[1.5rem] shadow-xl focus:bg-[#779556]' onClick={submitHandler}>
-                SignUp
+               {loading ?  <span className="loader"></span> : "SignUp" } 
             </button>
         </div>
     </div>)

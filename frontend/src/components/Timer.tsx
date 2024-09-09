@@ -13,7 +13,7 @@ export function Timer({} : any){
     const player2Ref= useRef<HTMLDivElement>(null);
     
     useEffect(()=>{
-        console.log("reloading!!");
+    //    console.log("reloading!!");
 
         if(intervalRef.current){
             clearInterval(intervalRef.current);
@@ -73,7 +73,7 @@ export function Timer({} : any){
             })
             if(!state.timers[0].minutes && !state.timers[0].seconds) {
                 state.socket.send(JSON.stringify({
-                    type: "ilost",
+                    type: "gameOver,onTime",
                     from: state.players.player1,
                     to: state.players.player2
                 }));

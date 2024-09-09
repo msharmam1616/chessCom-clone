@@ -1,5 +1,6 @@
 import { useRecoilState } from "recoil";
 import { userAtom } from "../../store/atoms";
+import { blackBoard } from "../../extras";
 
 export function IncomingRequest(){
     
@@ -27,6 +28,9 @@ export function IncomingRequest(){
                     ...state.request,
                     show: false
                 },
+                board: blackBoard,
+                color: "black",
+                currentTurn: false,
                 gameState: {
                     ...state.gameState,
                     ReceivedRequestAccepted: true  
