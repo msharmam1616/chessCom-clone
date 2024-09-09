@@ -11,7 +11,6 @@ export function SignUp() {
     const navigate= useNavigate();
     const setState= useSetRecoilState(userAtom);
     const [loading, setLoading] = useState(false);
-    const [err, setErr]= useState("");
     
     useEffect(()=>{
         if(inputRef.current && inputRef.current.value == ""){

@@ -1,7 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { boardSelector, userAtom }  from "../../store/atoms";
 import { colorSelector } from "../../store/atoms";
-import { blackBoard, whiteBoard } from "../../extras";
 
 const chars1= {
     1 : 'a',

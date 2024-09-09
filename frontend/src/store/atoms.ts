@@ -1,7 +1,7 @@
 
 
 import { atom, selector } from "recoil";
-import { PROD_SOCKET_URL, blackBoard, whiteBoard } from "../extras";
+import { PROD_SOCKET_URL, blackBoard } from "../extras";
 
 export const userAtom = atom({
     key: 'userAtom',
